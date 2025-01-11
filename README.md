@@ -19,4 +19,4 @@ apt install apktool
 ## Author 
 [Alienkrishn](https://t.me/alienkrishn) 
 
-Feel free to checkout my other repositoris as well ✨
+Feel free to checkout my other repositories as well ✨
