@@ -34,10 +34,10 @@ if [[ -d $PREFIX/var/apktool ]]; then
   printf "\n\e[31mapktool old directory found removing...\e[0m"
   rm -rf $PREFIX/var/apktool
   sleep 2 
-  prinf "\n\e[32mCreating apktool directory...\e[0m"
+  printf "\n\e[32mCreating apktool directory...\e[0m"
   mkdir -p $PREFIX/var/apktool
   else
-    prinf "\n\e[32mCreating apktool directory...\e[0m"
+    printf "\n\e[32mCreating apktool directory...\e[0m"
     mkdir -p $PREFIX/var/apktool
 fi
 
