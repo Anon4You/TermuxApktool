@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+# Copyright ©2025 by Alienkrishn [Anon4You] All rights reserved.  🌎 🌍 🌏 🌐 🗺
+#
+# https://t.me/nullxvoid
+# Githuh.com/Anon4You 
+#
+AUTHOR="Alienkrishn [Anon4You]"
+version="2.10.0"
+printf "\e[34m
+    #                                             
+   # #   #####  #    # #####  ####   ####  #      
+  #   #  #    # #   #    #   #    # #    # #      
+ #     # #    # ####     #   #    # #    # #      
+ ####### #####  #  #     #   #    # #    # #      
+ #     # #      #   #    #   #    # #    # #      
+ #     # #      #    #   #    ####   ####  ###### 
+                              \e[32mIn Termux version ${version}
+                              By ${AUTHOR}
+
+\e[0m"
+
+# Installing dependencies
+printf "\nInstalling dependencies....\n"
+pkgs=(proot openjdk-17 aapt aapt2 wget)
+for p in "${pkgs[@]}"; do 
+  if ! hash ${p} > /dev/null 2>&1; then
+    printf "\n\e[32mInstalling ${p}\n\e[0m"
+    apt install ${p} -y
+  fi 
+done 
+
+# Setting up apktool directory
+if [[ -d $PREFIX/var/apktool ]]; then
+  printf "\n\e[31mapktool old directory found removing...\e[0m"
+  rm -rf $PREFIX/var/apktool
+  else
+    prinf "\n\e[32mCreating apktool directory...\e[0m"
+    mkdir -p $PREFIX/var/apktool
+fi
+
+# downloading apktool jar file 
+printf "\n\e[32mDownloading jar file...\n\e[0m"
+wget --tries=20 --progress=dot https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_$version.jar \
+  -O ${PREFIX}/var/apktool/apktool.jar
+
+
+# Downloading launch script
+wget --retry=20 --progress=dot https://github.com/Anon4You/TermuxApktool/raw/main/script/launch-script \
+  -O PREFIX/bin/apktool
+
+# Giving executiv permission to apktool script
+chmod +x $PATH/apktool
+echo "[*] apktool installation finished."
+echo "[*] Run 'apktool' to execute it."
