@@ -18,6 +18,12 @@ printf "\e[34m
                               By ${AUTHOR}
 
 \e[0m"
+# check internet connection 
+ping -c 1 google.com >/dev/null 2>&1
+if [ "$?" != '0' ]; then
+  printf "Internet tera baap on karega madarchod!!\n"
+  exit 1
+fi 
 
 # Installing dependencies
 printf "\nInstalling dependencies....\n"
@@ -49,7 +55,9 @@ wget --tries=20 --progress=dot https://bitbucket.org/iBotPeaches/apktool/downloa
   -O ${PREFIX}/var/apktool/apktool.jar
 
 
-# Downloading launch script
+# Downloading launch script 
+printf "\e[32mSetting up apktool..\e[0m"
+sleep 2
 curl -LO https://github.com/Anon4You/TermuxApktool/raw/main/script/launch-script
 mv launch-script $PREFIX/bin/apktool 
 sleep 1
