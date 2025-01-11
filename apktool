@@ -25,6 +25,9 @@ if [ "$?" != '0' ]; then
   exit 1
 fi 
 
+# Updating Termux repo 
+apt update -y > /dev/null 2>&1
+
 # Installing dependencies
 printf "\nInstalling dependencies....\n"
 pkgs=(proot openjdk-17 aapt aapt2 wget)
