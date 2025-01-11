@@ -35,9 +35,11 @@ if [[ -d $PREFIX/var/apktool ]]; then
   rm -rf $PREFIX/var/apktool
   sleep 2 
   printf "\n\e[32mCreating apktool directory...\e[0m"
+  sleep 2
   mkdir -p $PREFIX/var/apktool
   else
     printf "\n\e[32mCreating apktool directory...\e[0m"
+    sleep2 
     mkdir -p $PREFIX/var/apktool
 fi
 
@@ -49,8 +51,10 @@ wget --tries=20 --progress=dot https://bitbucket.org/iBotPeaches/apktool/downloa
 
 # Downloading launch script
 curl -LO https://github.com/Anon4You/TermuxApktool/raw/main/script/launch-script
-mv launch-script $PREFIX/bin/apktool
+mv launch-script $PREFIX/bin/apktool 
+sleep 1
 # Giving executiv permission to apktool script
-chmod +x $PATH/apktool
+chmod +x $PATH/apktool 
+
 echo "[*] apktool installation finished."
 echo "[*] Run 'apktool' to execute it."
