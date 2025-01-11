@@ -33,6 +33,9 @@ done
 if [[ -d $PREFIX/var/apktool ]]; then
   printf "\n\e[31mapktool old directory found removing...\e[0m"
   rm -rf $PREFIX/var/apktool
+  sleep 2 
+  prinf "\n\e[32mCreating apktool directory...\e[0m"
+  mkdir -p $PREFIX/var/apktool
   else
     prinf "\n\e[32mCreating apktool directory...\e[0m"
     mkdir -p $PREFIX/var/apktool
@@ -45,9 +48,8 @@ wget --tries=20 --progress=dot https://bitbucket.org/iBotPeaches/apktool/downloa
 
 
 # Downloading launch script
-wget --retry=20 --progress=dot https://github.com/Anon4You/TermuxApktool/raw/main/script/launch-script \
-  -O PREFIX/bin/apktool
-
+curl -LO https://github.com/Anon4You/TermuxApktool/raw/main/script/launch-script
+mv launch $PREFIX/bin/apktool
 # Giving executiv permission to apktool script
 chmod +x $PATH/apktool
 echo "[*] apktool installation finished."
