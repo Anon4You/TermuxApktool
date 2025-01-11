@@ -49,7 +49,7 @@ wget --tries=20 --progress=dot https://bitbucket.org/iBotPeaches/apktool/downloa
 
 # Downloading launch script
 curl -LO https://github.com/Anon4You/TermuxApktool/raw/main/script/launch-script
-mv launch $PREFIX/bin/apktool
+mv launch-script $PREFIX/bin/apktool
 # Giving executiv permission to apktool script
 chmod +x $PATH/apktool
 echo "[*] apktool installation finished."
